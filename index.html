@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores Amarillas para Ti 🌻</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0d0f12;
+      color: #ffe600;
+      font-family: 'Comic Sans MS', 'Chalkboard SE', 'cursive', sans-serif;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Encabezado principal */
+    h1 {
+      position: absolute;
+      top: 50px;
+      font-size: 2.2rem;
+      text-align: center;
+      color: #ffeb3b;
+      text-shadow: 0 0 10px rgba(255, 235, 59, 0.6);
+      z-index: 10;
+    }
+
+    /* Contenedor central (Jake el Perro) */
+    .character-container {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    /* Jake dibujado completamente en CSS SVG */
+    .jake-svg {
+      width: 220px;
+      height: 260px;
+      filter: drop-shadow(0 0 15px rgba(255, 187, 0, 0.4));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Elementos flotantes de fondo (mensajes y flores) */
+    .floating-item {
+      position: absolute;
+      white-space: nowrap;
+      opacity: 0.85;
+      animation: floatAround linear infinite alternate;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .floating-text {
+      font-size: 1.1rem;
+      color: #ffd700;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+    }
+
+    .floating-flower {
+      font-size: 1.8rem;
+    }
+
+    @keyframes floatAround {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      100% {
+        transform: translate(25px, -25px) rotate(8deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Feliz Día de las Flores Amarillas 🌼</h1>
+
+  <!-- Ilustración SVG de Jake el Perro sosteniendo flores amarillas -->
+  <div class="character-container">
+    <svg class="jake-svg" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Orejas -->
+      <path d="M 40 80 C 20 60, 20 110, 45 105" fill="#f1a622" stroke="#000" stroke-width="4"/>
+      <path d="M 160 80 C 180 60, 180 110, 155 105" fill="#f1a622" stroke="#000" stroke-width="4"/>
+
+      <!-- Cuerpo de Jake -->
+      <rect x="45" y="60" width="110" height="130" rx="55" fill="#f1a622" stroke="#000" stroke-width="4"/>
+
+      <!-- Patas inferiores -->
+      <rect x="65" y="180" width="20" height="35" rx="10" fill="#f1a622" stroke="#000" stroke-width="4"/>
+      <rect x="115" y="180" width="20" height="35" rx="10" fill="#f1a622" stroke="#000" stroke-width="4"/>
+
+      <!-- Ojo Izquierdo -->
+      <circle cx="75" cy="105" r="24" fill="#ffffff" stroke="#000" stroke-width="4"/>
+      <circle cx="78" cy="108" r="14" fill="#000000"/>
+
+      <!-- Ojo Derecho -->
+      <circle cx="125" cy="105" r="24" fill="#ffffff" stroke="#000" stroke-width="4"/>
+      <circle cx="122" cy="108" r="14" fill="#000000"/>
+
+      <!-- Hocico / Clics de la nariz -->
+      <path d="M 70 120 Q 100 108 130 120 Q 100 150 70 120 Z" fill="#ffffff" stroke="#000" stroke-width="4"/>
+      <ellipse cx="100" cy="120" rx="12" ry="8" fill="#000000"/>
+
+      <!-- Brazos de Jake sosteniendo el ramo -->
+      <path d="M 45 135 Q 25 140 70 155" fill="none" stroke="#f1a622" stroke-width="14" stroke-linecap="round"/>
+      <path d="M 45 135 Q 25 140 70 155" fill="none" stroke="#000000" stroke-width="18" stroke-linecap="round" z-index="-1"/>
+      <path d="M 155 135 Q 175 140 130 155" fill="none" stroke="#f1a622" stroke-width="14" stroke-linecap="round"/>
+
+      <!-- Ramo de Flores Amarillas -->
+      <g id="bouquet">
+        <!-- Tallos y hojas -->
+        <path d="M 100 180 L 100 145" stroke="#4caf50" stroke-width="5" stroke-linecap="round"/>
+        <path d="M 90 180 L 95 150" stroke="#388e3c" stroke-width="4" stroke-linecap="round"/>
+        <path d="M 110 180 L 105 150" stroke="#388e3c" stroke-width="4" stroke-linecap="round"/>
+        <path d="M 85 160 Q 100 165 115 160" fill="none" stroke="#2e7d32" stroke-width="6"/>
+
+        <!-- Flores -->
+        <g transform="translate(100, 140)">
+          <circle cx="0" cy="0" r="12" fill="#ffeb3b"/>
+          <circle cx="0" cy="0" r="5" fill="#f57f17"/>
+          <circle cx="-12" cy="-8" r="10" fill="#fbc02d"/>
+          <circle cx="12" cy="-8" r="10" fill="#fbc02d"/>
+          <circle cx="-10" cy="10" fill="#fbc02d" r="9"/>
+          <circle cx="10" cy="10" fill="#fbc02d" r="9"/>
+          <circle cx="0" cy="-15" fill="#ffd700" r="11"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <script>
+    // Lista de frases cariñosas que flotarán en el fondo
+    const phrases = [
+      "Te amo ❤️",
+      "Eres mi persona favorita",
+      "Mi flor bonita 🌻",
+      "Siempre tú",
+      "Eres mi luz ✨",
+      "Sonríe siempre",
+      "Te mereces todo 💛",
+      "Eres magia",
+      "Mi lugar seguro",
+      "Brillas más que el sol ☀️"
+    ];
+
+    const icons = ["🌻", "🌼", "✨", "💛", "💐"];
+
+    function createFloatingElements() {
+      const totalElements = 35; // Cantidad de elementos dispersos
+
+      for (let i = 0; i < totalElements; i++) {
+        const item = document.createElement('div');
+        item.classList.add('floating-item');
+
+        // Alternar entre texto e íconos de flores
+        if (Math.random() > 0.4) {
+          item.classList.add('floating-text');
+          item.innerText = phrases[Math.floor(Math.random() * phrases.length)];
+        } else {
+          item.classList.add('floating-flower');
+          item.innerText = icons[Math.floor(Math.random() * icons.length)];
+        }
+
+        // Posicionamiento aleatorio en la pantalla
+        const posX = Math.random() * 90; // porcentaje horizontal
+        const posY = Math.random() * 90; // porcentaje vertical
+        const duration = 3 + Math.random() * 5; // duración de animación
+        const delay = Math.random() * 3;
+
+        item.style.left = `${posX}vw`;
+        item.style.top = `${posY}vh`;
+        item.style.animationDuration = `${duration}s`;
+        item.style.animationDelay = `${delay}s`;
+
+        document.body.appendChild(item);
+      }
+    }
+
+    // Generar los elementos al cargar la página
+    window.onload = createFloatingElements;
+  </script>
+</body>
+</html>
